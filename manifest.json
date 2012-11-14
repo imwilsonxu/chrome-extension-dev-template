@@ -36,24 +36,24 @@
     // Pick one (or none)
     
     // Toolbar
-    //"browser_action": {
-        //"default_icon": { 
-            //"19": "images/icons/19.png", 
-            //"38": "images/icons/38.png" 
-        //},
-        //"default_title": "Chrome Bone",
-        //"default_popup": "browser_action_popup.html"
-    //},
-
-    // Address bar.
-    "page_action": {
+    "browser_action": {
         "default_icon": { 
             "19": "images/icons/19.png", 
             "38": "images/icons/38.png" 
         },
         "default_title": "Chrome Bone",
-        "default_popup": "page_action_popup.html"
+        "default_popup": "browser_action_popup.html"
     },
+
+    // Address bar.
+    //"page_action": {
+        //"default_icon": { 
+            //"19": "images/icons/19.png", 
+            //"38": "images/icons/38.png" 
+        //},
+        //"default_title": "Chrome Bone",
+        //"default_popup": "page_action_popup.html"
+    //},
     
     //"theme": {},
     
