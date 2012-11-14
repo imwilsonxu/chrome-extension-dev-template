@@ -1,28 +1,16 @@
 # ChromeBone 
 
-## What
+A boilerplate/template/barebone of chrome extension development.
 
-A boilerplate of chrome extension.
+## Usage
 
-## Why
-
-Easier to make a chrome extension.
-
-## How
-
-- Clone the repos.
-- Tweak and enjoy :)
+    git clone https://github.com/imwilsonxu/chromebone.git
 
 ## Notes
 
-I've included a few examples:
+A few examples included:
 
 - a fully explained manifest.
 - browser action.
 - communicate between event page and content scripts.
 - options page.
-
-And some of my js kits:
-
-- cup.js, a better interface for storage.
-- kit.js, my js kit.
