@@ -17,10 +17,10 @@ Easier to make a chrome extension.
 
 I've included a few examples:
 
-- options page.
+- a fully explained manifest.
 - browser action.
-- background page.
-- communicate between background page and content scripts.
+- communicate between event page and content scripts.
+- options page.
 
 And some of my js kits:
 

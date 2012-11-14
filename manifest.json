@@ -1,21 +1,86 @@
 {
-    "name": "ChromeBone",
+    // http://developer.chrome.com/extensions/manifest.html
+
+    // ======================================================================
+    // Required
+    
+    // A plain 45-char-max text.
+    "name": "Chrome Bone",
     "version": "0.1",
+    // For Chrome 18+
+    "manifest_version": 2,
+    
+    // ======================================================================
+    // Recommended
+    
+    // A plain 132-char-max text.
+    "description": "A boilerplate/template for Chrome Extension development.",
 
-    "description": "",
+    // Icons should generally be in PNG format.
+    // Any format supported by Webkit, including BMP, GIF, ICO, and JPEG.
     "icons": {
-        "16": "img/icons/16.png",
-        "48": "img/icons/48.png",
-        "128": "img/icons/128.png"
+        // 16x16 icon is used as the favicon for an extension's pages. 
+        "16": "images/icons/16.png",
+        // 48x48 icon is used in extension managment (chrome://extensions).
+        "48": "images/icons/48.png",
+        // 128x128 icon is used during installation, should be always provided.
+        "128": "images/icons/128.png"
     },
 
+    // Specifies the subdirectory of _locales that contains the default strings
+    // for this extension. Required in extensions that have a _locales directory
+    // Must be absent in extensions that have no _locales directory.
+    //"default_locale": "en",
+
+    // ======================================================================
+    // Pick one (or none)
+    
+    // Toolbar
     "browser_action": {
-        "default_icon": "img/icons/19.png",
-        "default_title": "ChromeBone"
-        // "default_popup": "popup.html"
+        "default_icon": { 
+            "19": "images/icons/19.png", 
+            "38": "images/icons/38.png" 
+        },
+        "default_title": "Chrome Bone",
+        "default_popup": "browser_action_popup.html"
     },
-    "permissions": [ "tabs", "http://*/*", "https://*/*" ],
 
+    // Address bar.
+    //"page_action": {
+        //"default_icon": { 
+            //"19": "images/icons/19.png", 
+            //"38": "images/icons/38.png" 
+        //},
+        //"default_title": "Chrome Bone",
+        //"default_popup": "page_action_popup.html"
+    //},
+    
+    //"theme": {},
+    
+    // Used by packaged apps to specify the app's background scripts. Also used
+    // by hosted apps to specify the URLs that the app uses.
+    //"app": {},
+
+
+    // ======================================================================
+    // Add any of these that you need
+    
+    
+    // Event page, which is loaded when it is "needed", and unloaded when it goes
+    // idle again. 
+    "background": {
+        "persistent": false, 
+        "scripts": ["js/event_page.js"]
+    },
+
+    // Background page.
+    // An invisible page that holds the main logic.
+    //"background": {
+        //// Always open.
+        //"persistent": true,
+        //"scripts": ["js/background_page.js"]
+    //},
+    
     "content_scripts": [ {
         "matches": [ "http://*/*", "https://*/*", "ftp://*/*" ],
         // "exclude_globs": [ "",  "" ],
@@ -24,9 +89,64 @@
         "permissions": [ "tabs" ],
         "run_at": "document_end"
     } ],
+
+    // http://developer.chrome.com/extensions/manifest.html#permissions
+    // Allow you to use chrome.[permission] api.
+    // Hosted apps have less permissions.
+    "permissions": [ "tabs", "http://*/*", "https://*/*" ],
+
     "options_page": "options.html",
-    "background_page": "background.html"
+    
+    // Useful if you host the extension on your own site.
+    "homepage_url": "https://github.com/imwilsonxu/chromebone"
 
-    //"update_url": ""
+    //"file_browser_handlers": [...],
+
+    //"content_security_policy": "policyString",
+
+    // Either "spanning" or "split", to specify how this extension will behave
+    // if allowed to run in incognito mode.
+    //
+    // As a rule of thumb, if your extension or app needs to load a tab in an
+    // incognito browser, use split incognito behavior. If your extension or
+    // app needs to be logged into a remote server or persist settings locally,
+    // use spanning incognito behavior.
+    // "incognito": "spanning",
+
+    // A dictionary that specifies all intent handlers provided by this
+    // extension or app.
+    // "intents": {...}
+    
+    // Dev-only, control the unique ID of an extension.
+    // Use relative paths and chrome.extension.getURL() to avoid key value.
+    //"key": "publicKey",
+    // Override bookmarks, history, and newtab page.
+    //"chrome_url_overrides": {
+        //"newtab": "myNewtab.html"
+    //},
+    
+    // "minimum_chrome_version": "",
+
+    // "nacl_modules": [...],
+    
+    // "offline_enabled": true,
+    
+    //"omnibox": { "keyword": "aString" },
+    
+    // "plugins": [...],
+
+    // Either "3D" or "plugins".
+    //"requirements": {...},
+    
+    //"update_url": "http://path/to/updateInfo.xml",
+
+    // An array of strings specifying the paths (relative to the package root)
+    // of packaged resources that are expected to be usable in the context of a
+    // web page.
+    // Injected content scripts themselves do not need to be whitelisted.
+    // Prior to manifest version 2 all resources within an extension could be
+    // accessed from any page on the web.
+    //"web_accessible_resources": [...],
+    
+    //"sandbox": [...]
 }
-
