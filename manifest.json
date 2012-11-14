@@ -68,16 +68,18 @@
     
     // Event page, which is loaded when it is "needed", and unloaded when it goes
     // idle again. 
-    //"background": {
-        //"persistent": false, 
-        //"scripts": ["js/event_page.js"]
-    //},
+    "background": {
+        "persistent": false, 
+        "scripts": ["js/event_page.js"]
+    },
 
     // Background page.
-    "background": {
-        "persistent": true,
-        "scripts": ["js/background_page.js"]
-    },
+    // An invisible page that holds the main logic.
+    //"background": {
+        //// Always open.
+        //"persistent": true,
+        //"scripts": ["js/background_page.js"]
+    //},
     
     "content_scripts": [ {
         "matches": [ "http://*/*", "https://*/*", "ftp://*/*" ],

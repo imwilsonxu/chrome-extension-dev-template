@@ -1,3 +1,5 @@
+// http://developer.chrome.com/extensions/event_pages.html
+
 // Process requests from content script.
 function process_request(data, sender, callback) {
     var response = {};
@@ -50,4 +52,15 @@ function on_browser_action(tab) {
 // Called when the user clicks on the browser action.
 chrome.browserAction.onClicked.addListener(on_browser_action);
 
+// =================================================================
 
+function check_https(tabId, changeInfo, tab) {
+  // If the letter 'g' is found in the tab's URL...
+  if (tab.url.indexOf('https') > -1) {
+    // Show the page action.
+    chrome.pageAction.show(tabId);
+  }
+};
+
+// Listen for any changes to the URL of any tab.
+chrome.tabs.onUpdated.addListener(check_https);
