@@ -84,7 +84,7 @@
     "content_scripts": [ {
         "matches": [ "http://*/*", "https://*/*", "ftp://*/*" ],
         // "exclude_globs": [ "",  "" ],
-        "js": [ "js/content_script.js" ],
+        "js": [ "js/libs/jquery-1.8.3.min.js", "js/content_script.js" ],
         "css": [ "css/content_script.css" ],
         "permissions": [ "tabs" ],
         "run_at": "document_end"
